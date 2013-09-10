@@ -1,6 +1,6 @@
 Revision history for SHARYANTO-Number-Util
 
-0.56    2012-09-10 (SHARYANTO) (not yet released)
+0.56    2012-09-10 (SHARYANTO)
 
         - No functional changes. Split from SHARYANTO-Utils to minimize
           dependencies (I'm trying to make Text::ANSITable work under Windows).
