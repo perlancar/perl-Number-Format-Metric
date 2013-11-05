@@ -90,6 +90,8 @@ Give "i" suffix to prefixes when in base 10 for K, M, G, T, and so on.
 
 =head1 SEE ALSO
 
+L<SHARYANTO>
+
 Number formatting routines: L<Number::Format>, L<Format::Human::Bytes>,
 L<Number::Bytes::Human>.
 
