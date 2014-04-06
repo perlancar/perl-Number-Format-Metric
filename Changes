@@ -1,5 +1,13 @@
 Revision history for SHARYANTO-Number-Util
 
+0.57    2014-04-07 (SHARYANTO)
+
+        - No functional changes.
+
+        - Fix some broken tests by changing LANG to LC_ALL [thanks Slaven
+          Rezic, CT#94487].
+
+
 0.56    2013-09-10 (SHARYANTO)
 
         - No functional changes. Split from SHARYANTO-Utils to minimize
