@@ -8,7 +8,7 @@ use Test::More 0.98;
 
 use SHARYANTO::Number::Util qw(format_metric);
 
-local $ENV{LANG} = "C";
+local $ENV{LC_ALL} = "C";
 
 is(format_metric(1.23    , {precision=>1}       ), "1.2"   , "precision 1");
 is(format_metric(1.23    , {precision=>3}       ), "1.230" , "precision 2");
