@@ -1,5 +1,13 @@
 Revision history for SHARYANTO-Number-Util
 
+0.58    2014-05-01 (SHARYANTO)
+
+        - No functional changes.
+
+        - Try to set locale earlier and with POSIX::setlocale to avoid failure
+          reports [CT#94487].
+
+
 0.57    2014-04-07 (SHARYANTO)
 
         - No functional changes.
