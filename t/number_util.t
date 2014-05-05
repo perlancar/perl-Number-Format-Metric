@@ -9,7 +9,7 @@ use Test::More 0.98;
 BEGIN {
     use POSIX qw();
     $ENV{LC_ALL} = "C";
-    POSIX::setlocale("C");
+    POSIX::setlocale(&POSIX::LC_ALL, "C");
 }
 
 use SHARYANTO::Number::Util qw(format_metric);
