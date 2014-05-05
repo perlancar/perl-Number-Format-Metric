@@ -1,5 +1,12 @@
 Revision history for SHARYANTO-Number-Util
 
+0.59    2014-05-05 (SHARYANTO)
+
+        - No functional changes.
+
+        - Fix setlocale invocation in test, derp.
+
+
 0.58    2014-05-01 (SHARYANTO)
 
         - No functional changes.
