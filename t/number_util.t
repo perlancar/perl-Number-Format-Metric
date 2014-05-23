@@ -12,15 +12,24 @@ BEGIN {
     POSIX::setlocale(&POSIX::LC_ALL, "C");
 }
 
-use SHARYANTO::Number::Util qw(format_metric);
+use SHARYANTO::Number::Util qw(
+                                  format_metric
+                                  find_missing_nums_in_seq
+                          );
 
-is(format_metric(1.23    , {precision=>1}       ), "1.2"   , "precision 1");
-is(format_metric(1.23    , {precision=>3}       ), "1.230" , "precision 2");
-is(format_metric(1.23e3  , {base=>10}           ), "1.2ki" , "base 10 1");
-is(format_metric(1.23e9  , {base=> 2}           ), "1.1G"  , "base 2 1");
-is(format_metric(1.23e3  , {base=>10, i_mark=>0}), "1.2k"  , "i_mark=0");
-is(format_metric(1.23e-1 , {base=>10}           ), "123.0m", "number smaller than 1 1");
-is(format_metric(-1.23e-2, {base=>10}           ), "-12.3m", "number smaller than 1 1");
+subtest format_metric => sub {
+    is(format_metric(1.23    , {precision=>1}       ), "1.2"   , "precision 1");
+    is(format_metric(1.23    , {precision=>3}       ), "1.230" , "precision 2");
+    is(format_metric(1.23e3  , {base=>10}           ), "1.2ki" , "base 10 1");
+    is(format_metric(1.23e9  , {base=> 2}           ), "1.1G"  , "base 2 1");
+    is(format_metric(1.23e3  , {base=>10, i_mark=>0}), "1.2k"  , "i_mark=0");
+    is(format_metric(1.23e-1 , {base=>10}           ), "123.0m", "number smaller than 1 1");
+    is(format_metric(-1.23e-2, {base=>10}           ), "-12.3m", "number smaller than 1 1");
+};
+
+subtest find_missing_nums_in_seq => sub {
+    is_deeply([find_missing_nums_in_seq(1, 1, 3, 4, 6, 8, 7)], [2, 5]);
+};
 
 DONE_TESTING:
 done_testing();

@@ -10,7 +10,10 @@ use warnings;
 
 require Exporter;
 our @ISA       = qw(Exporter);
-our @EXPORT_OK = qw(format_metric);
+our @EXPORT_OK = qw(
+                       format_metric
+                       find_missing_nums_in_seq
+               );
 
 sub format_metric {
     my ($num, $opts) = @_;
@@ -57,12 +60,28 @@ sub format_metric {
     }
 }
 
+sub find_missing_nums_in_seq {
+    require List::Util;
+
+    my @res;
+    my $min = List::Util::min(@_);
+    my $max = List::Util::max(@_);
+
+    my %h = map { $_=>1 } @_;
+    for ($min..$max) {
+        push @res, $_ unless $h{$_};
+    }
+    wantarray ? @res : \@res;
+}
+
 1;
 # ABSTRACT: Number utilities
 
 =head1 SYNOPSIS
 
 =head1 FUNCTIONS
+
+Not exported by default but exportable.
 
 =head2 format_metric($num, \%opts) => STR
 
@@ -86,6 +105,12 @@ Known options:
 Give "i" suffix to prefixes when in base 10 for K, M, G, T, and so on.
 
 =back
+
+=head2 find_missing_nums_in_seq(LIST) => LIST
+
+Given a list of integers, return number(s) missing in the sequence, e.g.:
+
+ find_missing_nums_in_seq(1, 2, 3, 4, 7, 8); # (5, 6)
 
 
 =head1 SEE ALSO
