@@ -7,13 +7,12 @@ use utf8;
 use warnings;
 
 # VERSION
+# DATE
 
 require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(
                        format_metric
-                       find_missing_nums_in_seq
-                       find_missing_strs_in_seq
                );
 
 sub format_metric {
@@ -61,34 +60,6 @@ sub format_metric {
     }
 }
 
-sub find_missing_nums_in_seq {
-    require List::Util;
-
-    my @res;
-    my $min = List::Util::min(@_);
-    my $max = List::Util::max(@_);
-
-    my %h = map { $_=>1 } @_;
-    for ($min..$max) {
-        push @res, $_ unless $h{$_};
-    }
-    wantarray ? @res : \@res;
-}
-
-sub find_missing_strs_in_seq {
-    require List::Util;
-
-    my @res;
-    my $min = List::Util::minstr(@_);
-    my $max = List::Util::maxstr(@_);
-
-    my %h = map { $_=>1 } @_;
-    for ($min..$max) {
-        push @res, $_ unless $h{$_};
-    }
-    wantarray ? @res : \@res;
-}
-
 1;
 # ABSTRACT: Number utilities
 
@@ -120,19 +91,6 @@ Known options:
 Give "i" suffix to prefixes when in base 10 for K, M, G, T, and so on.
 
 =back
-
-=head2 find_missing_nums_in_seq(LIST) => LIST
-
-Given a list of integers, return number(s) missing in the sequence, e.g.:
-
- find_missing_nums_in_seq(1, 2, 3, 4, 7, 8); # (5, 6)
-
-=head2 find_missing_strs_in_seq(LIST) => LIST
-
-Like C<find_missing_nums_in_seq>, but for strings/letters "a".."z".
-
- find_missing_strs_in_seq("a", "e", "b"); # ("c", "d")
- find_missing_strs_in_seq("aa".."zu", "zz"); # ("zv", "zw", "zx", "zy")
 
 
 =head1 SEE ALSO

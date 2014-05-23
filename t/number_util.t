@@ -14,8 +14,6 @@ BEGIN {
 
 use SHARYANTO::Number::Util qw(
                                   format_metric
-                                  find_missing_nums_in_seq
-                                  find_missing_strs_in_seq
                           );
 
 subtest format_metric => sub {
@@ -26,14 +24,6 @@ subtest format_metric => sub {
     is(format_metric(1.23e3  , {base=>10, i_mark=>0}), "1.2k"  , "i_mark=0");
     is(format_metric(1.23e-1 , {base=>10}           ), "123.0m", "number smaller than 1 1");
     is(format_metric(-1.23e-2, {base=>10}           ), "-12.3m", "number smaller than 1 1");
-};
-
-subtest find_missing_nums_in_seq => sub {
-    is_deeply([find_missing_nums_in_seq(1, 1, 3, 4, 6, 8, 7)], [2, 5]);
-};
-
-subtest find_missing_strs_in_seq => sub {
-    is_deeply([find_missing_strs_in_seq("a", "c", "e")], ["b", "d"]);
 };
 
 DONE_TESTING:
