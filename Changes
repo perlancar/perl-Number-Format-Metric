@@ -1,4 +1,9 @@
-Revision history for SHARYANTO-Number-Util
+Revision history for Number-Format-Metric
+
+0.60    2014-12-05 (SHARYANTO) (unreleased)
+
+        - Rename module/dist from SHARYANTO-Number-Util to Number-Format-Metric.
+
 
 0.59    2014-05-05 (SHARYANTO)
 

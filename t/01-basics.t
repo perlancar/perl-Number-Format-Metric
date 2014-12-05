@@ -4,6 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
+use Number::Format::Metric qw(format_metric);
 use Test::More 0.98;
 
 BEGIN {
@@ -11,10 +12,6 @@ BEGIN {
     $ENV{LC_ALL} = "C";
     POSIX::setlocale(&POSIX::LC_ALL, "C");
 }
-
-use SHARYANTO::Number::Util qw(
-                                  format_metric
-                          );
 
 subtest format_metric => sub {
     is(format_metric(1.23    , {precision=>1}       ), "1.2"   , "precision 1");

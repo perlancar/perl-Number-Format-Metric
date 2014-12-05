@@ -1,13 +1,13 @@
-package SHARYANTO::Number::Util;
+package Number::Format::Metric;
+
+# DATE
+# VERSION
 
 use 5.010001;
 use locale;
 use strict;
 use utf8;
 use warnings;
-
-# VERSION
-# DATE
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -61,24 +61,27 @@ sub format_metric {
 }
 
 1;
-# ABSTRACT: Number utilities
+# ABSTRACT: Format number with metric prefix
 
 =head1 SYNOPSIS
 
-=head1 FUNCTIONS
-
-Not exported by default but exportable.
-
-=head2 format_metric($num, \%opts) => STR
-
-Format C<$num> using metric prefix, e.g.:
+ use Number::Format::Metric qw(format_metric);
 
  format_metric(14     , {base=>10});               # => "14"
  format_metric(12000  , {base=> 2, precision=>1}); # => "11.7K"
  format_metric(12000  , {base=>10, precision=>1}); # => "11.7Ki"
  format_metric(-0.0017, {base=>10});               # => "1.7m"
 
-Known options:
+
+=head1 FUNCTIONS
+
+None exported by default but all of them exportable.
+
+=head2 format_metric($num, \%opts) => STR
+
+Format C<$num> using metric prefix. Locale settings are respected (this module
+uses L<locale>). Might produce non-Latin Unicode characters (e.g. μ for 1e-6
+prefix). Known options:
 
 =over
 
@@ -95,11 +98,9 @@ Give "i" suffix to prefixes when in base 10 for K, M, G, T, and so on.
 
 =head1 SEE ALSO
 
-L<SHARYANTO>
-
-Number formatting routines: L<Number::Format>, L<Format::Human::Bytes>,
+Other number formatting modules: L<Number::Format>, L<Format::Human::Bytes>,
 L<Number::Bytes::Human>.
 
-https://en.wikipedia.org/wiki/Metric_prefix
+L<https://en.wikipedia.org/wiki/Metric_prefix>
 
 =cut
