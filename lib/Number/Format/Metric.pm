@@ -1,16 +1,18 @@
 package Number::Format::Metric;
 
-# DATE
-# VERSION
-
 use 5.010001;
 use locale;
 use strict;
 use utf8;
 use warnings;
 
-require Exporter;
-our @ISA       = qw(Exporter);
+use Exporter qw(import);
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @EXPORT_OK = qw(
                        format_metric
                );
@@ -68,8 +70,8 @@ sub format_metric {
  use Number::Format::Metric qw(format_metric);
 
  format_metric(14     , {base=>10});               # => "14"
- format_metric(12000  , {base=> 2, precision=>1}); # => "11.7K"
- format_metric(12000  , {base=>10, precision=>1}); # => "11.7Ki"
+ format_metric(12000  , {base=> 2, precision=>1}); # => "11.7k"
+ format_metric(12000  , {base=>10, precision=>1}); # => "11.7ki"
  format_metric(-0.0017, {base=>10});               # => "1.7m"
 
 
@@ -91,7 +93,7 @@ prefix). Known options:
 
 =item * i_mark => BOOL (default: 1)
 
-Give "i" suffix to prefixes when in base 10 for K, M, G, T, and so on.
+Give "i" suffix to prefixes when in base 10 for k, M, G, T, and so on.
 
 =back
 
