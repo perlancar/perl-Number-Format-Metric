@@ -1,3 +1,10 @@
+0.601   2023-02-12  Released-By: PERLANCAR; Urgency: low
+
+        - No functional changes.
+
+        - [doc] Fix example result in Synopsis (RT#146402) (Thanks R Philley).
+
+
 0.60    2014-12-05  Released-By: PERLANCAR
 
         - Rename module/dist from SHARYANTO-Number-Util to Number-Format-Metric.
