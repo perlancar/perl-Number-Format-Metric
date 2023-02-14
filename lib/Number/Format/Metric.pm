@@ -69,10 +69,12 @@ sub format_metric {
 
  use Number::Format::Metric qw(format_metric);
 
- format_metric(14     , {base=>10});               # => "14"
- format_metric(12000  , {base=> 2, precision=>1}); # => "11.7k"
- format_metric(12000  , {base=>10, precision=>1}); # => "11.7ki"
- format_metric(-0.0017, {base=>10});               # => "1.7m"
+ format_metric(14     , {base=>10});               # => "14.0"
+ format_metric(14     , {base=>10, precision=>0}); # => "14"
+ format_metric(12001  , {base=> 2, precision=>1}); # => "11.7k"
+ format_metric(12001  , {base=>10, precision=>3}); # => "12.001ki"
+ format_metric(-0.0017, {base=>10});               # => "-1.7m"
+ format_metric(1.26e6 , {base=>10});               # => "1.3Mi"
 
 
 =head1 FUNCTIONS
