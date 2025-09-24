@@ -139,8 +139,27 @@ String to add after the prefix, e.g. "b" (for byte), "g" (for gram), etc.
 
 =head1 SEE ALSO
 
-Other number formatting modules: L<Number::Format>, L<Format::Human::Bytes>,
-L<Number::Bytes::Human>.
+=head2 Unformatting numbers
+
+L<Data::Sah::Coerce> coerce module:
+L<Data::Sah::Coerce::perl::To_float::From_str::suffix_datasize> and
+L<Data::Sah::Coerce::perl::To_float::From_str::suffix_datasize>. Example of
+using this can be seen in L<datasize-from-metric> and L<dataspeed-from-metric>
+(included in the L<App::DataSizeSpeedUtils> distribution).
+
+=head2 Other number formatting modules
+
+L<Number::Format> can format several kinds of numbers e.g. bytes ("2.3KB") or
+prices ("USD 5,000") as well as format using template ("picture") like
+`sprintf`. But for metric prefixes it only supports kilo, kibi, mega, mebi,
+giga, gibi. It can also unformat numbers back to floating point form.
+
+L<Format::Human::Bytes> supports formatting bytes with prefixes kilo, mega,
+giga, and tera.
+
+L<Number::Bytes::Human> supports formatting with prefixes kilo (2^10) to yotta
+(2^70), but does not support smaller prefixes, e.g. milli, micro, etc.
+Obviously.
 
 L<https://en.wikipedia.org/wiki/Metric_prefix>
 
